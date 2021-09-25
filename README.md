@@ -3,9 +3,6 @@ ASP.net MVC 5 and MSSQL.
 
 Register & Login pages with ASP.net and MSSQL.
 
-## How to use
-
-
 ## Login
 
 Go to login page and enter your user information.
