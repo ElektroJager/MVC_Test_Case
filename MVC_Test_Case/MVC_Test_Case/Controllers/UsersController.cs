@@ -43,6 +43,7 @@ namespace MVC_Test_Case.Controllers
         // GET: Users/Login
         public ActionResult Login()
         {
+            Session["isSuccess"] = false;
             return View();
         }
 
@@ -51,7 +52,7 @@ namespace MVC_Test_Case.Controllers
         public ActionResult Login(User user)
         {
 
-            if(Session["Name"] != null)
+            if (Session["Name"] != null)
             {
                 ViewBag.Error = "You are already logged in";
                 return View("Login");
@@ -64,6 +65,7 @@ namespace MVC_Test_Case.Controllers
                 if (db.Users.Any(x => x.Name == user.Name && tempPass == x.Password))
                 {
                     Session["Name"] = user.Name;
+
                     return RedirectToAction("Home");
                 }
                 else
@@ -89,15 +91,16 @@ namespace MVC_Test_Case.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [OutputCache(NoStore = true, Duration = 0)]
         public ActionResult Register(User user)
         {
-    
             if (ModelState.IsValid)
             {
                 if (db.Users.Any(x => x.Name == user.Name)) {
+
                     ViewBag.ErrorMessage = "Account with this name already exists !!";
 
-                    return View();
+                    return View("Register");
                 }
 
                 else { 
@@ -105,13 +108,13 @@ namespace MVC_Test_Case.Controllers
                     db.Users.Add(user);
                     db.SaveChanges();
 
-                    ViewBag.Message = "You have successfully registered.";
+                    ModelState.Clear();
 
-                    return View();
+                    ViewBag.Message = "You have successfully registered.";
                 }
             }
 
-            return View();
+            return View("Register");
         }
 
         // GET: Users/Logout
