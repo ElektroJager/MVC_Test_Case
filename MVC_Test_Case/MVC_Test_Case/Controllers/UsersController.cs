@@ -50,6 +50,7 @@ namespace MVC_Test_Case.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(User user)
         {
+
             if(Session["Name"] != null)
             {
                 ViewBag.Error = "You are already logged in";
@@ -94,7 +95,7 @@ namespace MVC_Test_Case.Controllers
             if (ModelState.IsValid)
             {
                 if (db.Users.Any(x => x.Name == user.Name)) {
-                    ViewBag.ErrorMessage = "NOOO";
+                    ViewBag.ErrorMessage = "Account with this name already exists !!";
 
                     return View();
                 }
