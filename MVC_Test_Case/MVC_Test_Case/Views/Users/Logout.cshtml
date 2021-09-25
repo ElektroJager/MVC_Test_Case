@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Logout";
+}
+<body>
+    <div class="text-center">
+        <h1 class="display-4">Logout Successful</h1>
+        @if (Session["Name"] == null)
+        {
+            <p class="display-4">You have logged out successfully.</p>
+        }
+
+
+    </div>
+</body>
+

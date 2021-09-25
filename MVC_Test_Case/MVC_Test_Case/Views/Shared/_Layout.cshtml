@@ -16,23 +16,40 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li class="navbar-brand form-inline">MVC_Case</li>
+
+                    <li>@Html.ActionLink("Home", "Home", "Users")</li>
                 </ul>
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav">
+                        @if (Session["Name"] == null)
+                        {
+                            <li>@Html.ActionLink("Register", "Register", "Users")</li>
+                        }
+
+                        @if (Session["Name"] == null)
+                        {
+
+                            <li>@Html.ActionLink("Login", "Login", "Users")</li>
+                        }
+                        @if (Session["Name"] != null)
+                        {
+                            <li>@Html.ActionLink("Logout", "Logout", "Users")</li>
+                        }
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+
     </div>
 
     @Scripts.Render("~/bundles/jquery")
