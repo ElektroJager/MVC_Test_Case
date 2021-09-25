@@ -5,11 +5,16 @@ Register & Login pages with ASP.net and MSSQL.
 
 ## How to use
 
+
+## Login
+
 Go to login page and enter your user information.
 
 ![image](https://user-images.githubusercontent.com/48105864/134769066-2f6c00b3-8a80-4f71-bb0a-43a9ba4f7be5.png)
 
 If you have not registered before, go to the registration page to register.
+
+## Register
 
 Enter your user information
 - Name
