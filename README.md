@@ -3,6 +3,20 @@ ASP.net MVC 5 and MSSQL.
 
 Register & Login pages with ASP.net and MSSQL.
 
+## How to establish database connection.
+
+Use restore database to add the database to your own server using BlueprintCaseDB.bak file.
+
+![image](https://user-images.githubusercontent.com/48105864/134813064-3e39eaad-4d97-4c0a-bb91-b4e141a3fa5c.png)
+
+Change the connection string in the Web.config file with the connection string of your own database.
+
+```
+  <connectionStrings>
+    <add name="UserDBContext" connectionString="${your-connection-string}";Initial Catalog=BlueprintCaseDB;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework" providerName="System.Data.SqlClient" />
+  </connectionStrings>
+```
+
 ## Login
 
 Go to login page and enter your user information.
